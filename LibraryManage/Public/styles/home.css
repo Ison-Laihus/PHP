@@ -1,0 +1,192 @@
+
+.homeHeader{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 26px;
+    color: #ffffff;
+    background-color: #48D1CC;
+}
+.homeHeader a{
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 60px;
+    top: 10px;
+    right: 50px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #f0c040;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    color: #fff;
+}
+.homeHeader a:hover{
+    background-color: #f0cc44;
+}
+.userMsg,.searchBox,.showList,.addOrder{
+    display: block;
+    width: 800px;
+    padding: 20px 0;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 1px solid #ececec;
+    box-shadow: 8px 8px 8px #DDD;
+}
+.userMsg table{
+    display: block;
+    width: 600px;
+    margin: 20px auto;
+}
+.userMsg table tr{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+.userMsg table tr td:first-child{
+    width: 20%;
+    text-align: right;
+}
+.userMsg table tr td:last-child{
+    width: 80%;
+    text-indent: 30px;
+}
+.userAction{
+    margin-top: 30px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+.userAction a{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 5px;
+    background-color: #48D1CC;
+    color: #fff;
+    font-size: 18px;
+}
+.userAction a:hover{
+    background-color: #40E0D0;
+}
+.showList table{
+    margin: 0 auto;
+}
+.showList tr{
+    text-align: center;
+    height: 40px;
+}
+.showList td{
+    padding: 0 5px;
+}
+.showList td a,.showList .current{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #7FFFD4;
+    text-align: center;
+    line-height: 30px;
+}
+.showList .current{
+    background-color: #FFE4E1;
+}
+.searchBox a{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+}
+.searchBox a:first-child{
+    margin-left: 100px;
+}
+.onSearch{
+    background-color: #4682B4;
+    color: #fff;
+}
+.searchText{
+    margin-left: 100px;
+    width: 450px;
+    height: 40px;
+    padding: 3px 20px;
+}
+.searchBtn{
+    width: 100px;
+    height: 50px;
+    border: 0;
+    background-color: #EE6363;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+.searchBtn:hover{
+    background-color: #FF6A6A;
+}
+.addOrder img{
+    float: left;
+    width: 150px;
+    height: 200px;
+    margin-left: 100px;
+}
+.addOrder .bookMsg{
+    float: right;
+    width: 450px;
+    height: 200px;
+}
+.addOrder .bookMsg span{
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.addOrder .orderCondition{
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 220px;
+}
+.add{
+    display: block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    border: 0;
+    margin: 20px auto;
+    color: #fff;
+    cursor: pointer;
+    background-color: #EE6363;
+}
+.add:hover{
+    background-color: #FF6A6A;
+}
+.tip{
+    width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #7FFFD4;
+    color: #fff;
+    font-size: 20px;
+    margin: 20px auto;
+}
+.zero{
+    width: 80%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 5px;
+    background-color: #f0cc44;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 30px;
+}

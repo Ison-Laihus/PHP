@@ -1,0 +1,24 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <table class="twoCols">
+            <foreach name="adminMsg" item="vo">
+                <tr>
+                    <td>{$key}</td>
+                    <td>{$vo}</td>
+                </tr>
+            </foreach>
+        </table>
+        <div class="options">
+            <if condition="$Think.session.authority eq 1">
+                <a href="__MODULE__/Index/addAdmin">添加管理员</a>
+                <a href="__MODULE__/Index/delAdmin">删除管理员</a>
+            <elseif condition="$Think.session.authority eq 2"/>
+                <a href="__MODULE__/Index/delAdmin">查看所有管理员</a>
+            </if>
+        </div>
+    </div>
+</block>

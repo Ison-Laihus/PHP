@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/home.css"/>
+    <script type="text/javascript" src="__PUBLIC__/scripts/jquery.js"></script>
+</head>
+<body>
+    <div class="homeHeader">welcome to library<a href="__MODULE__/Login/logout">退出</a></div>
+    <block name="content"></block>
+    <div class="userAction">
+        <a href="__MODULE__/Home/home">查看用户信息</a>
+        <a href="__MODULE__/Home/checkBook">去查看书籍</a>
+        <!--<a href="__MODULE__/Home/orderBook">去预约</a>-->
+        <a href="__MODULE__/Home/checkBorrow">查看所借书籍</a>
+        <a href="__MODULE__/Home/checkOrder">查看预约</a>
+    </div>
+    <block name="extra"></block>
+    <block name="script"></block>
+</body>
+</html>

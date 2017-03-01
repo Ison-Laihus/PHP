@@ -1,0 +1,24 @@
+[ 2017-01-22T12:28:50+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Login/login.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Think
+
+[ 2017-01-22T12:29:30+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Login/login.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Think
+
+[ 2017-01-22T12:31:35+08:00 ] ::1 /think/LibraryManage/index.php/Login/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Login
+
+[ 2017-01-22T12:31:57+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Login/login.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Think
+

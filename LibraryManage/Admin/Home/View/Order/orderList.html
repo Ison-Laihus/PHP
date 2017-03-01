@@ -1,0 +1,36 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <if condition="$orderList">
+            <table class="multi" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>编号</th>
+                    <th>预约者</th>
+                    <th>书名</th>
+                    <th>数目</th>
+                    <th>借书日期</th>
+                    <th>借书时长</th>
+                </tr>
+                <foreach name="orderList" item="order">
+                    <tr>
+                        <td>{$order.id}</td>
+                        <td>{$order.user}</td>
+                        <td>{$order.bookname}</td>
+                        <td>{$order.booknum}</td>
+                        <td>{$order.borrowdate}</td>
+                        <td>{$order.maintaintime}个月</td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="6">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">尚未有预约记录</div>
+        </if>
+        <div class="options">
+            <a href="__MODULE__/Order/borrowWarn">查看借书提醒</a>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,6 @@
+[ 2017-02-02T20:26:48+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Book/addBorrow.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Think
+

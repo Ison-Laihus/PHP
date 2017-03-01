@@ -1,0 +1,30 @@
+<extend name="./Admin/Home/View/Base/home.html"/>
+<block name="content">
+    <div class="showList">
+        <if condition="$orderList">
+            <table>
+                <tr>
+                    <th width="100px">编号</th>
+                    <th width="100px">书名</th>
+                    <th width="100px">借书日期</th>
+                    <th width="100px">时长</th>
+                    <th width="100px">数目</th>
+                    <th width="100px">状态</th>
+                </tr>
+                <foreach name="orderList" item="order">
+                    <tr>
+                        <td>{$order.id}</td>
+                        <td>{$order.bookname}</td>
+                        <td>{$order.borrowdate}</td>
+                        <td>{$order.maintaintime}个月</td>
+                        <td>{$order.booknum}</td>
+                        <td>{$order.status}</td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="6">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">未有相关的预约记录</div>
+        </if>
+    </div>
+</block>

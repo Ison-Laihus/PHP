@@ -1,0 +1,32 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="/think/LibraryManage/Public/styles/reset.css">
+    <link rel="stylesheet" href="/think/LibraryManage/Public/styles/login.css">
+</head>
+<body>
+    <div class="bck">
+        <form class="loginPanel" action="/think/LibraryManage/index.php/Home/Login/doLogin" method="post" required>
+            <div class="lm">图书管理系统</div>
+            <div class="select">
+                <span>对象:</span>
+                <select name="object" class="selectOption">
+                    <option value="0">我是用户</option>
+                    <option value="1">我是管理员</option>
+                </select>
+            </div>
+            <div class="usr">
+                <span>用户名:</span>
+                <input name="user" type="text" required/>
+            </div>
+            <div class="pwd">
+                <span>密码:</span>
+                <input name="pass" type="password" required/>
+            </div>
+            <input class="submit" type="submit" value="提交"/>
+        </form>
+    </div>
+</body>
+</html>

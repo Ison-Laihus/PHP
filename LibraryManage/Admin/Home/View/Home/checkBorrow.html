@@ -1,0 +1,56 @@
+<extend name="./Admin/Home/View/Base/home.html"/>
+<block name="content">
+    <div class="showList">
+        <table>
+            <tr>
+                <th width="100px">编号</th>
+                <th width="100px">书名</th>
+                <th width="100px">借书日期</th>
+                <th width="100px">还书日期</th>
+                <th width="100px">数目</th>
+                <th width="100px">状态</th>
+                <th width="100px">操作</th>
+            </tr>
+            <foreach name="borrowList" item="borrow">
+                <tr>
+                    <td>{$borrow.id}</td>
+                    <td>{$borrow.bookname}</td>
+                    <td>{$borrow.borrowdate}</td>
+                    <td>{$borrow.returndate}</td>
+                    <td>{$borrow.booknum}</td>
+                    <td>{$borrow.status}</td>
+                    <td><a href="javascript:void(0);" onclick="contactOrder(this)">续约</a></td>
+                </tr>
+            </foreach>
+            <if condition="$flag"><tr><td colspan="7">{$show}</td></tr></if>
+        </table>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        function contactOrder(e) {
+            var sib = $(e).parent().siblings();
+            var time = parseInt(sib.eq(3).html().split("-")[1])-parseInt(sib.eq(2).html().split("-")[1]);
+            if ( time==0 ) {
+                alert("您的借期已达到最长时限，不能续约，敬请原谅!");
+            } else {
+                $.post(
+                    "__URL__/contactOrder",
+                    {
+                        "id":sib.eq(0).html(),
+                        "date":sib.eq(3).html()
+                    },
+                    function(data) {
+                        console.log(data);
+                        if ( data=="1" ) {
+                            alert("已经帮您续借一个月！");
+                        } else {
+                            alert("续借失败！");
+                        }
+                        window.location.href = "__SELF__";
+                    }
+                );
+            }
+        }
+    </script>
+</block>

@@ -1,0 +1,13 @@
+<extend name="./Admin/Home/View/Base/home.html"/>
+<block name="content">
+    <div class="userMsg">
+        <table>
+            <foreach name="userMsg" item="vo">
+                <tr>
+                    <td>{$key}</td>
+                    <td>{$vo}</td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+</block>

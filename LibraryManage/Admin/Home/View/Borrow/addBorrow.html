@@ -1,0 +1,57 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <form class="ContentBlock fr" action="__URL__/handleAddBorrow" method="post">
+        <table class="twoCols">
+            <tr>
+                <td>借书者：</td>
+                <td><input name="user" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>书名：</td>
+                <td><input name="bookName" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>数目：</td>
+                <td><input name="bookNum" type="text" required/><span id="cue"></span></td>
+            </tr>
+            <tr>
+                <td>借书日期：</td>
+                <td><input name="borrowDate" type="date" required/></td>
+            </tr>
+            <tr>
+                <td>还书日期：</td>
+                <td><input name="returnDate" type="date" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2" display="text-align: center;"><input id="submit" type="submit" value="添加"/></td>
+            </tr>
+        </table>
+        <div class="options">
+            <a href="__MODULE__/Borrow/borrowList">借书记录</a>
+            <a href="__MODULE__/Borrow/returnWarn">还书提醒</a>
+        </div>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var re = new RegExp("^[1-9]+[0-9]*$");
+            console.log("regex:"+re.test("1234"));
+            $(".ContentBlock").submit(function(e){
+                var re = new RegExp("^[1-9]+[0-9]*$");
+                console.log($("input[name='bookNum']").val());
+                console.log("regex:"+re.test($("input[name='bookNum']").val()));
+                if ( $("input[name='bookNum']").val() && !re.test($("input[name='bookNum']").val()) ){
+                    e.preventDefault();
+                    $("#cue").html("请填写数字！");
+                    $("#cue").css("color", "#f00");
+                } else {
+                    $("#cue").html("");
+                }
+            });
+        });
+    </script>
+</block>

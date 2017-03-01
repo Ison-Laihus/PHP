@@ -1,0 +1,28 @@
+<extend name="./Admin/Home/View/Base/home.html"/>
+<block name="content">
+    <div class="showList">
+        <if condition="$searchList">
+            <table>
+                <tr>
+                    <th width="100px">书籍图片</th>
+                    <th width="100px">书名</th>
+                    <th width="100px">作者</th>
+                    <th width="100px">库存</th>
+                    <th width="100px">操作</th>
+                </tr>
+                <foreach name="searchList" item="s">
+                    <tr>
+                        <td width="100px" height="100px"><img width="100%" src="__PUBLIC__/images/{$s.img}" alt="book picture"></td>
+                        <td>{$s.bookname}</td>
+                        <td>{$s.author}</td>
+                        <td>{$s.surplus}</td>
+                        <td><a href="__URL__/orderBook/bookId/{$s.id}">预约</a></td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="5">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">未搜索到相关书籍</div>
+        </if>
+    </div>
+</block>

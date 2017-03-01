@@ -1,0 +1,24 @@
+[ 2017-02-06T12:38:36+08:00 ] ::1 /think/LibraryManage/index.php/Admin/Home/View/Base/tip.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Admin
+
+[ 2017-02-06T12:39:12+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Base/tip.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载模块:Think
+
+[ 2017-02-06T12:43:24+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Base/tip.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Think
+
+[ 2017-02-06T12:43:39+08:00 ] ::1 /think/LibraryManage/index.php/think/LibraryManage/index.php/Home/Base/tip.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Think
+

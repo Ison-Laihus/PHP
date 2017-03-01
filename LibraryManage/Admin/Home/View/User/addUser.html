@@ -1,0 +1,28 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <form class="ContentBlock fr" action="__URL__/handleAddUser" method="post">
+        <table class="twoCols">
+            <tr>
+                <td>用户名：</td>
+                <td><input class="userName" name="name" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input class="userPwd" name="pwd" type="password" required/></td>
+            </tr>
+            <tr>
+                <td>确认：</td>
+                <td><input class="userPwdSure" name="sure" type="password" required/><span id="cue"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="添加"/></td>
+            </tr>
+        </table>
+        <div class="options">
+            <a href="__MODULE__/User/userList">用户列表</a>
+        </div>
+    </form>
+</block>

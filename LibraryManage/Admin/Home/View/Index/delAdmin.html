@@ -1,0 +1,99 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/extra.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <table class="multi" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th width="10%">ID</th>
+                <th width="10%">管理员名称</th>
+                <th width="10%">管理员权限</th>
+                <if condition="$Think.session.authority eq 1">
+                    <th width="10%">操作</th>
+                </if>
+            </tr>
+            <foreach name="allAdmins" item="vo">
+                <tr display="text-align: center;">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.authority}</td>
+                    <if condition="$Think.session.authority eq 1">
+                        <td>
+                            <a href="javascript:void(0)" onclick="alertBox(this);">edit</a>
+                            <a href="javascript:void(0)" onclick="deleteAdmin(this);">delete</a>
+                        </td>
+                    </if>
+                </tr>
+            </foreach>
+            <if condition="$flag"><tr><td colspan="4">{$show}</td></tr></if>
+        </table>
+        <div class="options">
+            <if condition="$Think.session.authority eq 1">
+                <a href="__MODULE__/Index/addAdmin">添加管理员</a>
+                <a href="__MODULE__/Index/index">查看自身信息</a>
+            <elseif condition="$Think.session.authority eq 2"/>
+                <a href="__MODULE__/Index/index">查看自身信息</a>
+            </if>
+        </div>
+    </div>
+</block>
+<block name="extra">
+    <div class="curtain"></div>
+    <form class="alertBox" action="__URL__/updateAdmin" method="post">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><input name="name" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>权限</td>
+                <td>
+                    <select name="authority">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="id"/>
+        <input id="submit" type="submit" value="提交"/>
+        <input id="cancel" type="button" value="取消"/>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#cancel").click(function(){
+                $(".curtain").hide(1000);
+                $(".alertBox").hide();
+            });
+            $("#submit").click(function(){
+                $(".alertBox").submit(function(e){
+                    if ( $(".alertBox input[name='pwd']").val() != $(".alertBox input[name='confirm']").val() ) {
+                        e.preventDefault();
+                        alert("密码确认错误!");
+                    }
+                });
+            });
+        });
+
+        function alertBox(e){
+            $(".curtain").show();
+            $(".alertBox").show(1000);
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            $("input[name='id']").val(id);
+            $(".alertBox input[name='name']").val(tds.eq(1).html());
+            $(".alertBox input[name='authority']").val(tds.eq(2).html());
+        }
+
+        function deleteAdmin(e){
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            window.location.href = "__URL__/deleteAdmin/id/"+id;
+        }
+    </script>
+</block>

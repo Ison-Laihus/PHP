@@ -1,0 +1,38 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <if condition="$borrowList">
+            <table class="multi" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>编号</th>
+                    <th>借书者</th>
+                    <th>书名</th>
+                    <th>数目</th>
+                    <th>借书日期</th>
+                    <th>还书日期</th>
+                </tr>
+                <foreach name="borrowList" item="borrow">
+                    <tr>
+                        <td>{$borrow.id}</td>
+                        <td>{$borrow.user}</td>
+                        <td>{$borrow.bookname}</td>
+                        <td>{$borrow.booknum}</td>
+                        <td>{$borrow.borrowdate}</td>
+                        <td>{$borrow.returndate}</td>
+                        <!--<td>{$borrow.id}</td>-->
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="6">{$show}</td></tr></if>
+            </table>
+            <else/>
+            <div class="zero">尚未有借书记录</div>
+        </if>
+        <div class="options">
+            <a href="__MODULE__/Borrow/addBorrow">添加借书记录</a>
+            <a href="__MODULE__/Borrow/returnWarn">还书提醒</a>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <block name="title"><title>图书管理系统</title></block>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/index.css"/>
+    <block name="css"></block>
+    <script type="text/javascript" src="__PUBLIC__/scripts/jquery.js"></script>
+</head>
+<body>
+<block name="header">
+    <div class="HeaderBlock">
+        <div class="title">图书管理系统<a class="logout" href="__MODULE__/Login/logout">退出</a></div>
+    </div>
+</block>
+<div class="middle">
+    <block name="menu">
+        <ul class="MenuBlock block fl">
+            <li class="item"><a class="itemTitle" href="__MODULE__/Index/index">管理员信息</a></li>
+            <li class="item"><a class="itemTitle" href="__MODULE__/User/userList">会员信息</a></li>
+            <li class="item"><a class="itemTitle" href="__MODULE__/Book/bookList">书籍信息</a></li>
+            <li class="item"><a class="itemTitle" href="__MODULE__/Borrow/borrowList">借还管理</a></li>
+            <li class="item"><a class="itemTitle" href="__MODULE__/Order/orderList">预约管理</a></li>
+            <li class="item"><a class="itemTitle" href="__MODULE__/User/blackList">黑名单</a></li>
+        </ul>
+    </block>
+    <block name="frame"><div class="ContentBlock fr"></div></block>
+</div>
+<block name="extra"></block>
+
+
+<script type="text/javascript" src="__PUBLIC__/scripts/index.js"></script>
+<block name="script"></block>
+</body>
+</html>

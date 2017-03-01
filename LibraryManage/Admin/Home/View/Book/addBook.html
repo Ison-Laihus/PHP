@@ -1,0 +1,97 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <form class="ContentBlock fr" action="__URL__/handleAddBook" enctype="multipart/form-data" method="post">
+        <table class="twoCols">
+            <tr>
+                <td>书名：</td>
+                <td><input name="bookName" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>作者：</td>
+                <td><input name="author" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>出版社：</td>
+                <td><input name="publisher" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>类别：</td>
+                <td>
+                    <select id="selection" name="category" required>
+                        <option value="0">请选择</option>
+                        <foreach name="cateList" item="cate">
+                            <option value="{$cate.category}">{$cate.category}</option>
+                        </foreach>
+                    </select>
+                    <span id="cue"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>总数：</td>
+                <td><input name="sum" type="text" required/><span id="cue1"></span></td>
+            </tr>
+            <tr>
+                <td>余数：</td>
+                <td><input name="surplus" type="text" required/><span id="cue2"></span></td>
+            </tr>
+            <tr>
+                <td>是否展示：</td>
+                <td>
+                    <select name="isShow">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>图片：</td>
+                <td><input name="img" type="file" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2" display="text-align: center;"><input id="submit" type="submit" value="添加"/></td>
+            </tr>
+        </table>
+        <div class="options">
+            <a href="__MODULE__/Book/bookList">书籍列表</a>
+        </div>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                if ( $("#selection option:selected").val()=='0' ) {
+                    $("form").submit(function(e){
+                        e.preventDefault();
+                    });
+                    $("#cue").html("请选择！");
+                    $("#cue").css("color", "#f00");
+                } else {
+                    $("#cue").html("");
+                }
+                var re = new RegExp("^[1-9]+[0-9]*$");
+                if ( $("input[name='sum']").val() && !re.test($("input[name='sum']").val()) ){
+                    $("form").submit(function(e){
+                        e.preventDefault();
+                    });
+                    $("#cue1").html("请填写数字！");
+                    $("#cue1").css("color", "#f00");
+                } else {
+                    $("#cue1").html("");
+                }
+                if ( $("input[name='surplus']").val() && !re.test($("input[name='surplus']").val()) ){
+                    $("form").submit(function(e){
+                        e.preventDefault();
+                    });
+                    $("#cue2").html("请填写数字！");
+                    $("#cue2").css("color", "#f00");
+                } else {
+                    $("#cue2").html("");
+                }
+            });
+        });
+    </script>
+</block>

@@ -1,0 +1,57 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <form class="ContentBlock fr" action="__URL__/handleAddAdmin" method="post">
+        <table class="twoCols">
+            <tr>
+                <td>用户名：</td>
+                <td><input class="adminName" name="name" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input class="adminPwd" name="pwd" type="password" required/></td>
+            </tr>
+            <tr>
+                <td>确认：</td>
+                <td><input class="adminPwdSure" name="sure" type="password" required/><span id="cue"></span></td>
+            </tr>
+            <tr>
+                <td>权限：</td>
+                <td>
+                    <select name="authority" class="adminOption">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="添加"/></td>
+            </tr>
+        </table>
+        <div class="options">
+            <if condition="$Think.session.authority eq 1">
+                <a href="__MODULE__/Index/index">查看自身信息</a>
+                <a href="__MODULE__/Index/delAdmin">删除管理员</a>
+            <elseif condition="$Think.session.authority eq 2"/>
+                <a href="__MODULE__/Index/index">查看自身信息</a>
+            </if>
+        </div>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        // 添加管理员时进行密码的确认
+        $(document).ready(function(){
+            $(".adminPwdSure").blur(function(){
+                $("#cue").html("");
+                if ($(".adminPwdSure").val()!=$(".adminPwd").val() ) {
+                    $("#cue").html("密码确认错误");
+                    $("#cue").css("color", "#f00");
+                }
+            });
+        });
+    </script>
+</block>

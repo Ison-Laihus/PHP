@@ -1,0 +1,90 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/extra.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <if condition="$userList">
+            <table class="multi" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>编号</th>
+                    <th>用户名</th>
+                    <th>信用度</th>
+                    <th>是否借书</th>
+                    <th>借书数目</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="userList" item="user">
+                    <tr>
+                        <td>{$user.id}</td>
+                        <td>{$user.name}</td>
+                        <td>{$user.credit}</td>
+                        <td><if condition="$user.isborrow eq '1'">是<else/>否</if></td>
+                        <td>{$user.booknum}</td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="alertBox(this);">edit</a>
+                            <a href="javascript:void(0)" onclick="deleteUser(this);">delete</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="6">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">尚未有用户</div>
+        </if>
+        <div class="options">
+            <a href="__MODULE__/User/addUser">添加用户</a>
+        </div>
+    </div>
+</block>
+<block name="extra">
+    <div class="curtain"></div>
+    <form class="alertBox" action="__URL__/updateUser" method="post">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><input name="name" type="text" required/></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input name="pwd" type="password" required/></td>
+            </tr>
+            <tr>
+                <td>密码确认</td>
+                <td><input name="confirm" type="password" required/></td>
+            </tr>
+        </table>
+        <input type="hidden" name="id"/>
+        <input id="submit" type="submit" value="提交"/>
+        <input id="cancel" type="button" value="取消"/>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#cancel").click(function(){
+                $(".curtain").hide(1000);
+                $(".alertBox").hide();
+            });
+        });
+
+        function alertBox(e){
+            $(".curtain").show();
+            $(".alertBox").show(1000);
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            $("input[name='id']").val(id);
+            $(".alertBox input[name='name']").val(tds.eq(1).html());
+        }
+
+        function deleteUser(e){
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            var sure = confirm("您确定要删除该用户么？");
+            if ( sure ) {
+                window.location.href = "__URL__/deleteUser/id/"+id;
+            }
+        }
+    </script>
+</block>

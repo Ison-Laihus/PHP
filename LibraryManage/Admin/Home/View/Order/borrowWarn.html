@@ -1,0 +1,55 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <if condition="$orderList">
+            <table class="multi" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>编号</th>
+                    <th>预约者</th>
+                    <th>书名</th>
+                    <th>数目</th>
+                    <th>借书日期</th>
+                    <th>借书时长</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="orderList" item="order">
+                    <tr>
+                        <td>{$order.id}</td>
+                        <td>{$order.user}</td>
+                        <td>{$order.bookname}</td>
+                        <td>{$order.booknum}</td>
+                        <td>{$order.borrowdate}</td>
+                        <td>{$order.maintaintime}个月</td>
+                        <td>
+                            <a href="javascript:void(0);" onclick="agreeBorrow(this);">同意</a>
+                            <a href="javascript:void(0);" onclick="disagreeBorrow(this);">驳回</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="6">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">尚未有今天的借书预约</div>
+        </if>
+        <div class="options">
+            <a href="__MODULE__/Order/orderList">查看预约列表</a>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        function agreeBorrow(e) {
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            window.location.href="__URL__/agreeBorrow/id/"+id;
+        }
+        function disagreeBorrow(e) {
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            window.location.href="__URL__/disagreeBorrow/id/"+id;
+        }
+    </script>
+</block>

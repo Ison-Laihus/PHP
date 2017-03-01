@@ -1,0 +1,14 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/table.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <div class="tip" style="width: 80%; height: 80px; border-radius: 5px; background-color: #7FFFD4; text-align: center; line-height: 80px; font-size: 20px; margin: 30px auto;">{$msg}</div>
+        <div class="options">
+            <foreach name="urls" item="u">
+                <a href="{$u.url}">{$u.text}</a>
+            </foreach>
+        </div>
+    </div>
+</block>

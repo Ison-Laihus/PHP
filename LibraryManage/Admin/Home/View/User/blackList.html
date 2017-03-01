@@ -1,0 +1,64 @@
+<extend name="./Admin/Home/View/Base/main.html"/>
+<block name="css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/table.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/styles/extra.css"/>
+</block>
+<block name="frame">
+    <div class="ContentBlock fr">
+        <if condition="$blackList">
+            <table class="multi" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>编号</th>
+                    <th>用户名</th>
+                    <th>信用度</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="blackList" item="user">
+                    <tr>
+                        <td>{$user.id}</td>
+                        <td>{$user.name}</td>
+                        <td>{$user.credit}</td>
+                        <td>
+                            <a href="javascript:void(0);" onclick="getDetail(this)">detail</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <if condition="$flag"><tr><td colspan="4">{$show}</td></tr></if>
+            </table>
+        <else/>
+            <div class="zero">尚未有失信用户</div>
+        </if>
+    </div>
+</block>
+<block name="extra">
+    <div class="curtain"></div>
+    <div class="alertBox">
+        <div class="text"></div>
+        <input id="cancel2" type="button" value="隐藏"/>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#cancel2").click(function(){
+                $(".curtain").hide(1000);
+                $(".alertBox").hide();
+            });
+        });
+
+        function getDetail(e){
+            $(".curtain").show();
+            $(".alertBox").show(1000);
+            var tds = $(e).parent().parent().find("td");
+            var id = tds.eq(0).html();
+            $.post(
+                "__URL__/blackHistory",
+                {"id":id},
+                function(data){
+                    console.log(data);
+                    $(".text").html(data);
+                }
+            );
+        }
+    </script>
+</block>

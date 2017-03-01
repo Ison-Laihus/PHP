@@ -1,0 +1,70 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.bck{
+    background: url("../images/bck.jpg") no-repeat left top;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.loginPanel{
+    position: absolute;
+    padding: 10px;
+    right: 15%;
+    top: 20%;
+    width: 300px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.68);
+    outline: #48D1CC solid 2px;
+    outline-offset: -2px;
+}
+.lm{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    font-family: 华文彩云;
+    text-align: center;
+    color: #ffffff;
+}
+.select, .usr, .pwd{
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    margin-top: 20px;
+    line-height: 60px;
+    background-color: rgba(255,255,255, 0.6);
+}
+span{
+    display: inline-block;
+    text-align: right;
+    width: 80px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+
+}
+.usr input,.pwd input{
+    width: 180px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    padding: 0 10px;
+}
+.submit{
+    width: 200px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #4682B4;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+.submit:hover{
+    background-color: #48D1CC;
+}

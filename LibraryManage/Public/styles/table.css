@@ -1,0 +1,79 @@
+.ContentBlock .twoCols,.multi,.searchBox{
+    display: block;
+    border: 1px solid #ececec;
+    box-shadow: 8px 8px 8px #DDD;
+    width: 800px;
+    margin: 20px auto;
+}
+.ContentBlock table thead, .ContentBlock table tbody{
+    display: block;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+/*.ContentBlock table tr{*/
+    /*display: block;*/
+    /*width: 100%;*/
+/*}*/
+.multi tr, .multi td{
+    text-align: center;
+}
+.ContentBlock table tr{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+.ContentBlock .twoCols tr td:first-child{
+    width: 30%;
+    text-align: right;
+}
+.ContentBlock .twoCols tr td:last-child{
+    width: 70%;
+    text-indent: 30px;
+}
+.multi a, .multi .current{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #7FFFD4;
+    text-align: center;
+    line-height: 30px;
+    margin: 2px;
+}
+.multi .current{
+    background-color: #FFE4E1;
+}
+.options{
+    margin-top: 30px;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.options a{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 5px;
+    background-color: #48D1CC;
+    color: #fff;
+    font-size: 18px;
+}
+.options a:hover{
+    background-color: #40E0D0;
+}
+.zero{
+    width: 80%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 5px;
+    background-color: #f0cc44;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
