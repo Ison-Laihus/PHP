@@ -1,0 +1,18 @@
+/*common block*/
+*{padding: 0; margin: 0;}
+html, body{height: 100%; overflow: hidden;}
+
+/*vt.html page*/
+.pics{ width: 100%; height: 100%; list-style-type: none; padding: 0; margin: 0;}
+.pic{position: relative; width: 100%; height: 100%; transition: all .5s ease;}
+.pic img{width: 100%; height: 100%;}
+.con{position: absolute; top: 30%; width: 100%; text-align: center; font-size: 25px; font-weight: bold; font-family: impact; background-color: #D3D3D3; opacity: .5; padding: 50px 0;}
+.inTest{display: block; position: absolute; top: 40%; width: 200px; height: 60px; left: 50%; transform: translate(-50%, 0); cursor: pointer; background-color: #B22222; border: 0; border-radius: 10px; color: #fff; outline: none; text-align: center; line-height: 60px; text-decoration: none; opacity: 0.8; font-weight: bold;}
+.inTest:hover{color: #1E90FF;}
+
+.pixs{position: fixed; width: 20px; height: 180px; top: 40%; right: 50px; background-color: rgba(28, 28, 28, .45); list-style-type: none; margin: 0; padding: 0; border-radius: 10px;}
+.pixs li{height: 30px; width: 100%; overflow: hidden;}
+.pixs li a{display: block; width: 10px; height: 10px; border-radius: 5px; background-color: #D1EEEE; margin: 0 auto; margin-top: 10px;}
+
+#on{width: 16px; height: 16px; border-radius: 8px;  margin-top: 6px; background-color: #8B0000;}
+

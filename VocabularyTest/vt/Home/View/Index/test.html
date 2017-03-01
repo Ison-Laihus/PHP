@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英语单词测试</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/vt/test.css"/>
+</head>
+<body>
+<!-- 页面头部 -->
+<div class="head">
+    <div class="menu">菜单
+        <ul class="menulist">
+            <a href="__URL__/test?a=1">添加单词</a>
+            <a href="__URL__/test?a=2">测试生词</a>
+            <a href="__URL__/test?a=3">测试错题</a>
+            <a href="__URL__/test?a=4">生词本</a>
+            <a href="__URL__/test?a=5">错题集</a>
+            <a href="__URL__/test?a=6">我的测试成绩</a>
+        </ul>
+    </div>
+    Welcome To lyk Lab
+    <a href="__URL__/test?a={$change>3 ? 2 : $change}" class="change">{$word}</a>
+</div>
+
+<!-- 表单--开始 -->
+<form class="testarea" action="__URL__/test?med={$med}&a={$a}" method="post">
+    <h3>
+        <if condition="($med eq 'test') AND ($a eq 2)">生词测试
+        <elseif condition="($med eq 'test') AND ($a eq 3)"/>错题测试
+        <elseif condition="$med eq 'add'"/>添加单词
+        <elseif condition="$change eq 4"/>生词列表
+        <elseif condition="$change eq 5"/>错词列表
+        <elseif condition="$change eq 6"/>测试成绩
+        </if>
+    </h3>
+    <if condition="$change eq 1">
+        <empty name="$untest">
+            <div class="redirect">
+                您的<if condition="$a eq 2">生词本<elseif condition="$a eq 3" />错题本</if>中已经没有单词了，您有以下选择
+                <a class="operations" href="__URL__/test?a=1">添加单词</a>
+               <if condition="$a eq 2">
+                   <a class="operations" href="__URL__/test?a=3">测试错题</a>
+               <elseif condition="$a eq 3" />
+                   <a class="operations" href="__URL__/test?a=2">测试生题</a>
+               </if>
+               <a class="operations" href="__URL__/test?a=6">查看成绩列表</a>
+            </div>
+        <else/>
+            <foreach name="$untest" item="v" key="i">
+                <php>$group = explode('-', $v);</php>
+                <div class="box">
+                    <div class="zh">{$group[1]}</div>
+                    <input type="text" name="en{$i}" class="en" <empty name="judge">placeholder="请填入对应的英文"<else />value="{$answer[$i]}"</empty> />
+                    <div class="tips" style="display: {$dis}; background-color: <empty name='$judge[$i]'>#f00<else />#0f0</empty>;">
+                        <empty name="$judge[$i]">
+                            抱歉，您回答错误，还要加油哦！----- 正确的英文单词：{$group[0]}
+                        <else/>
+                            恭喜您回答正确
+                        </empty>
+                    </div>
+                </div>
+            </foreach>
+            <input class="submit" type="submit" value="<empty name='$judge'>下一测<else/>提交</empty>"/>
+        </empty>
+    <elseif condition="$change eq 2" />
+        <div class="selector" style="display: {$a_dis}">
+            <label for="#addnum">填写单词的数量：</label>
+            <select id="addnum" name="addnum">
+                <option selected="selected">1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <input type="button" id="get" value="确认"/>
+        </div>
+        <div class="addbox" style="display: {$a_dis}">
+            <input type="text" name="adden0" placeholder="请输入英文单词"/>
+            <input type="text" name="addzh0" placeholder="请输入单词示意"/>
+        </div>
+        <input style="display: {$a_dis}" class="addsubmit" type="submit" value="添加"/>
+        <div class="addbox"  style="display: {$a_dis2}">添加成功！
+            <a class="operations" href="__URL__/test?a=1">继续添加</a>
+            <a class="operations" href="__URL__/test?a=2">去测试</a>
+        </div>
+    <elseif condition="$change eq 4" />
+        <empty name="$untest" >
+            <div class="newwords">您的生词本中无生词，您有以下选择
+                <a class="operations" href="__URL__/test?a=1">添加生词</a>
+                <a class="operations" href="__URL__/test?a=5">查看错词列表</a>
+                <a class="operations" href="__URL__/test?a=3">测试错题</a>
+                <a class="operations" href="__URL__/test?a=6">查看成绩列表</a>
+            </div>
+        <else />
+            <foreach name="$untest" item="un" key="i">
+                <php>$group = explode('-', $un);</php>
+                <div class="newwords">
+                    <h3>编号：{$i+1}</h3>
+                    <div class="newen">英文：{$group[0]}</div>
+                    <div class="newzh">释义：{$group[1]}</div>
+                </div>
+            </foreach>
+        </empty>
+    <elseif condition="$change eq 5" />
+        <empty name="wrong">
+            <div class="redirect">您的错题本中无错词，您有以下选择
+                <a class="operations" href="__URL__/test?a=2">测试生词</a>
+                <a class="operations" href="__URL__/test?a=4">查看生词列表</a>
+                <a class="operations" href="__URL__/test?a=6">查看成绩列表</a>
+            </div>
+        <else />
+            <foreach name="wrong" item="w">
+                <php>$group = explode('-', $w);</php>
+                <div class="wrongwords">
+                    <h3>编号：{$i+1}</h3>
+                    <div class="newen">英文：{$group[0]}</div>
+                    <div class="newzh">释义：{$group[1]}</div>
+                </div>
+            </foreach>
+        </empty>
+    <elseif condition="$change eq 6" />
+        <if condition="($right neq NULL) OR ($worng neq NULL)">
+            <div class="record">一共做了{$k+$j}道题,其中，做对了{$j}道题，做错了{$k}道题</div>
+            <div class="left">
+                <h4>正题</h4>
+                <empty name="right">
+                    <div class="waring">无</div>
+                    <else />
+                    <foreach name="right" item="r">
+                        <php>$group = explode('-', $r);</php>
+                        <div class="rwords">{$group[0]} ---------- {$group[1]}</div>
+                    </foreach>
+                </empty>
+            </div>
+            <div class="right">
+                <h4>错题</h4>
+                <empty name="wrong">
+                    <div class="waring">无</div>
+                    <else />
+                    <foreach name="wrong" item="w">
+                        <php>$group = explode('-', $w);</php>
+                        <div class="wwords">{$group[0]} ---------- {$group[1]}</div>
+                    </foreach>
+                </empty>
+            </div>
+        <else />
+            <div class="redirect">
+                您还没有成绩，快去测试吧！
+                <a class="operations" href=__URL__/test?a=2">去测试</a>
+            </div>
+        </if>
+    </if>
+</form>
+<!-- 表单--结束 -->
+<script type="text/javascript" src="__PUBLIC__/vt/test.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/*vt.php page*/
+*{margin: 0; padding: 0;}
+
+.head{position: relative; width: 100%; height: 100px; text-align: center; line-height: 100px; background-color: #66CDAA; font-size: 20px; color: #fff; font-weight: bold;}
+.menu{position: absolute; width: 80px; height: 30px; left: 20px; top: 35px; background-color: #FA8072; border-radius: 5px; font-size: 15px; line-height: 30px; text-align: center; cursor: pointer;}
+.menu:hover{background-color: #FFA07A;}
+.menu:hover .menulist{display: block;}
+.menulist{display: none; position: absolute; width: 200px; list-style-type: none; margin: 0; padding: 0; top: 30px; left: 0; border: 1px solid #aaa; background-color: #FFFAFA;}
+.menulist a{display: block; width: 100%; height: 30px; text-decoration: none; text-indent: 1em; line-height: 30px; text-align: left;}
+.menulist a:hover{background-color: #EEE9E9;}
+.change{display: block; text-decoration: none; position: absolute; width: 200px; height: 60px; right: 20px; top: 20px; background-color: #87CEEB; border-radius: 5px; text-align: center; line-height: 60px; color: #fff;}
+.change:hover{background-color: #87CEFA; cursor: pointer;}
+.testarea{width: 1000px; margin: 0 auto; margin-top: 30px; background-color: #00E5EE; border-radius: 20px; padding: 20px; overflow: auto;}
+.box, .addbox, .newwords, .wrongwords, .redirect, .record{width: 800px; margin: 0 auto; margin-top: 20px; border-radius: 10px; background-color: #97FFFF; padding: 20px;}
+.tips{padding: 10px;}
+.submit, .addsubmit{display: block; width: 120px; height: 40px; border: 0; background-color: #FFD700; margin: 0 auto; margin-top: 20px; color: #fff; font-size: 20px; cursor: pointer;}
+.submit:hover, .addsubmit:hover{color: #B22222;}
+.operations:hover{color: #1E90FF;}
+.selector{width: 400px; padding: 20px; margin: 0 auto; background-color: #FFF68F; border-radius: 10px;}
+#addnum{width: 100px;}
+#get{width: 80px; height: 30px; margin-left: 30px; border: 0; background-color: #A52A2A; color: #fff; font-size: 15px; font-weight: bold; cursor: pointer;}
+#get:hover{background-color: #B22222;}
+.addbox input{width: 200px; height: 20px; margin-left: 30px;}
+.redirect{background-color: #FA8072;}
+.left, .right{width: 390px; padding: 10px; margin-top: 20px; float: left; border-radius: 10px;}
+.left{margin-left: 80px; background-color: #0f0;}
+.right{margin-left: 20px; background-color: #ff0000;}
+.warning{width: 320px; padding:10px; background-color: #FF8C00;}
